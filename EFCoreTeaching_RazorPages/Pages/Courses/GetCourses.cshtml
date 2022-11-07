@@ -30,8 +30,12 @@
                     <td>
                        <p>
                            <a asp-page="/Courses/Course_Enrollments" asp-route-cid="@item.CourseId">Show Enrollments</a>
-                          
-                       </p>
+                            @if (Model.Student != null)
+                            {
+
+                               <a asp-page = "/Enrollments/CreateEnrollment" asp-route-cid = "@item.CourseId" asp-route-sid = "@Model.Student.StudentId">| Enroll @Model.Student.Name </a>
+                            }
+                          </p>
                     </td>
                 </tr>
             }

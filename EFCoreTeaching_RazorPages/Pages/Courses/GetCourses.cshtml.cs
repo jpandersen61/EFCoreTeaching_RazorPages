@@ -12,14 +12,21 @@ namespace EFCoreTeaching_RazorPages
     public class GetCoursesModel : PageModel
     {
         ICourseService courseService;
+        IStudentService studentService;
 
         public IEnumerable<Course> Courses { get; set; }
-        public GetCoursesModel(ICourseService service)
+        public Student Student { get; set; }
+        public GetCoursesModel(ICourseService cService, IStudentService sService)
         {
-            courseService=service;
+            courseService=cService;
+            studentService=sService;
         }
         public void OnGet(int sid)
         {
+           if(sid>0)
+           {
+                    Student = studentService.GetStudent(sid);
+           }
            Courses = courseService.GetCourses();
         }
     }

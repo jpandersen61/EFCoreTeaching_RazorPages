@@ -19,5 +19,11 @@ namespace EFCoreTeaching_RazorPages.Services.EFServices
         {
             return context.Enrollments;
         }
+
+        public void AddEnrollment(Enrollment enrollment)
+        {
+            context.Enrollments.Add(enrollment);
+            context.SaveChanges();
+        }
     }
 }
