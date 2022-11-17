@@ -33,6 +33,21 @@ namespace EFCoreTeaching_RazorPages.Services.EFServices
           .FirstOrDefault(m => m.StudentId == id);
           return student;
         }
+
+        public void DeleteStudent(int id)
+        {
+            IEnumerable<Enrollment> enrollments = context.Enrollments.Where(e => e.StudentId == id);
+
+            if (enrollments != null)
+            {
+                context.Enrollments.RemoveRange(enrollments);
+            }
+            
+            Student stundentToBeDeleted = context.Students.FirstOrDefault(m => m.StudentId == id);
+            context.Students.Remove(stundentToBeDeleted);
+            
+            context.SaveChanges();
+        }
     }
 
 }

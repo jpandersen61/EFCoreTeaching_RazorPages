@@ -11,6 +11,7 @@ namespace EFCoreTeaching_RazorPages.Pages.Courses
 ;
         public Course_EnrollmentsModel(ICourseService service)
         {
+            
             courseService = service;
         }
 
@@ -23,8 +24,10 @@ namespace EFCoreTeaching_RazorPages.Pages.Courses
             Course = courseService.GetCourse(cid);
             if (Course == null)
             {
+                
                 return NotFound();
             }
+
             return Page();
         }
     }

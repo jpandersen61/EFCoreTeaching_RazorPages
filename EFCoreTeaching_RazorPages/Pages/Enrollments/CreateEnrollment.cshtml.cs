@@ -35,6 +35,7 @@ namespace EFCoreTeaching_RazorPages.Pages.Enrollments
 
         public IActionResult OnPost()
         {
+            
             if (!ModelState.IsValid)
             {
                 return Page();

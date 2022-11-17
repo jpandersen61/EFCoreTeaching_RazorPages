@@ -11,5 +11,6 @@ namespace EFCoreTeaching_RazorPages.Services.Interface
         IEnumerable<Student> GetStudents();
         void AddStudent(Student student);
         Student GetStudent(int id);
+        void DeleteStudent(int id);
     }
 }
